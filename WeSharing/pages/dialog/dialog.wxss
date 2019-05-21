@@ -1,0 +1,133 @@
+/* pages/dialog/dialog.wxss */
+Page{
+  width: 100%;
+  height: 100%;
+  background-color: #f8f8f8; 
+}
+
+.content{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dividing-line{
+  width: 90%;
+  height: 1rpx;
+  background-color: #c5c2c2;
+  border-radius: 30%;
+}
+
+.current-status{
+  width: 90%;
+  height: 80rpx;
+  margin-top: 15rpx;
+  background-color: #ffffff;
+  border-radius: 50rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.current-status-text{
+  line-height: 80rpx;
+  padding-left: 20rpx;
+  color: #929292;
+  font-size: 30rpx;
+}
+
+.btn{
+  margin-right: 10rpx;
+  height: 60rpx;
+  display: flex;
+}
+
+.current-status-confirm,.current-status-cancel{
+  width: 90rpx;
+  height: 55rpx;
+  line-height: 55rpx;
+  font-size: 25rpx;
+  margin: 0;
+  margin-left: 10rpx;
+  padding: 0;
+  border-radius: 25rpx;
+  color: #fdfdfd;
+  background-color: #2f24c4;
+}
+
+.current-status-confirm::after,.current-status-cancel::after {
+  /* border-radius: 98rpx; */
+  border: none;
+}
+
+.button-hover{
+  /* border-radius: 98rpx; */
+  background-color: #c4c4c4;
+  color: rgb(0, 0, 0, 0.6);
+}
+
+.dialog-content{
+  height: 84%;
+  width: 90%;
+  padding-top: 10rpx;
+}
+
+.scroll{
+  height: 100%;
+}
+
+/* 隐藏scroll-view滑动条 */
+::-webkit-scrollbar
+{
+width: 0;
+height: 0;
+color:transparent;
+}
+
+.input-area{
+  height: 8%;
+  width: 90%;
+  display: flex;
+  align-items: center;
+}
+
+.input-area-content{
+  width: 100%;
+  height: 80rpx;
+  border-radius: 30rpx;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.input-area-input{
+  width: 75%;
+  height: 100%;
+  padding-left: 20rpx;
+  line-height: 100%;
+  font-size: 30rpx;
+}
+
+.input-area-voice{
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.input-area-send{
+  width: 90rpx;
+  height: 55rpx;
+  line-height: 55rpx;
+  font-size: 25rpx;
+  border-radius: 25rpx;
+  color: #fdfdfd;
+  background-color: #2f24c4;
+  padding: 0;
+}
+
+.input-area-send::after{
+  border: none;
+}

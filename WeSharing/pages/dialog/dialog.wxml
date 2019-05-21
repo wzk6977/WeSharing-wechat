@@ -1,0 +1,40 @@
+<!--pages/dialog/dialog.wxml-->
+<view class='content'>
+
+  <view class='dividing-line'></view>
+
+  <view class='current-status'>
+    <text class='current-status-text'>当前双方无意向</text>
+    <view class='btn'>
+      <button class='current-status-confirm'>确认</button>
+      <button class='current-status-cancel'>取消</button>
+    </view>
+  </view>
+
+  <view class='dialog-content'>
+    <scroll-view class='scroll' scroll-y='ture'>
+      <text>[微信小程序]聊天对话(文本,图片)的功能(完整代码附效..._CSDN博客
+2017年12月1日 - 微信小程序聊天对话功能实现代码包含样式 06-22 完整的微信小程序实现 WebSocket 长链接聊天代码,包括聊天室界面的样式。可直接使用,有疑问可加微信...
+CSDN博客号 - 百度快照
+微信小程序WebSocket实现聊天对话功能_javascript技巧_脚本之家
+2018年7月6日 - 这篇文章主要为大家详细介绍了微信小程序WebSocket实现聊天对话功能,具有一定的参考价值,感兴趣的小伙伴们可以参考一下
+脚本之家 - 百度快照
+为您推荐：websocket 聊天 微信web打开微信聊天小程序websocket案例微信对话脚本微信小程序 websocket微信小程序websocket
+微信小程序实现仿微信聊天界面(各种细节处理) - 最萌不..._CSDN博客
+2019年1月7日 - 第一次写小程序,老板就让我用websoket写个聊天对话,群聊这种。第一次写聊天功能...效果图背景在公司做的项目里面,刚好有需要用到微信聊天界面长按弹框...
+CSDN博客号 - 百度快照
+微信小程序实现聊天对话(文本、图片)功能_javascript技巧_脚本之家
+2018年7月6日 - 这篇文章主要为大家详细介绍了微信小程序实现聊天对话功能,可以发送文本、图片,具有一定的参考价值,感兴趣的小伙伴们可以参考一下</text>
+    </scroll-view>
+
+  </view>
+
+  <view class='input-area'>
+    <view class='input-area-content'>
+      <input class='input-area-input' placeholder='请输入消息'></input>
+      <image class='input-area-voice' src='/images/voice.png'></image>
+      <button class='input-area-send'>发送</button>
+    </view>
+  </view>
+
+</view>

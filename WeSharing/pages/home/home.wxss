@@ -1,0 +1,387 @@
+/* pages/home/home.wxss */
+Page {
+  height: 100%;
+}
+
+.swiper-tab{
+   width: 100%;
+   height: 5%;
+   display: flex;
+   flex-direction: row;
+   justify-content:space-around;
+   z-index: 5;
+   border-bottom: 5rpx solid #F4F4F4;
+}
+.swiper-tab-list{
+  width:200rpx;
+  margin: 0 20rpx;
+  padding: 0 20rpx;
+  text-align: center;
+  font-size: 35rpx;
+  font-family:Helvetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", STXihei, "Microsoft YaHei", SimHei, "WenQuanYi Micro Hei"; 
+}
+.active{
+   color:rgb(5, 5, 5);
+   border-bottom: 1px solid #080808;
+   }
+
+
+.swiper{
+  width: 100%;
+  height: 94.5%;
+}
+
+.swiper-item{
+  width: 100%;
+  height: 100%;
+}
+
+
+.scroll-view{
+  width: 96%;
+  display: flex;
+  justify-content: center;
+  /* overflow: auto; */
+  /*  padding-top: 10rpx; */
+   
+}
+
+/* 隐藏scroll-view滑动条 */
+::-webkit-scrollbar
+{
+width: 0;
+height: 0;
+color:transparent;
+}
+
+/* .shared-list{
+  display: flex;
+  flex: row;
+  margin-left: 20rpx;
+  margin-right:20rpx;
+  justify-content: space-between;
+  flex-wrap:wrap;
+} */
+
+.content{
+  background-color: #f1f0f0; 
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.shared-list{
+  display: flex;
+  flex: row;
+  /* margin-left: 20rpx;
+  margin-right:20rpx; */
+  justify-content: space-between;
+  flex-wrap:wrap;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  width: 49%;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  width: 49%;
+}
+
+.water-fall-view{
+  width: 100%;
+}
+
+.item-content{
+  margin-top:20rpx;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 1rpx solid #bebaba;
+  background-color:  #ffffff;
+  border-radius: 10rpx;
+}
+
+.item-img{
+  width: 100%;
+}
+
+.item-name{
+  width: 100%;
+  text-align: center;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+}
+
+.item-bottom{
+  width: 100%;
+  height: 40rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 10rpx;
+}
+
+.item-bottom-price{
+  height: 100%;
+  font-size: 25rpx;
+  margin-left: 10rpx;
+}
+
+.item-bottom-distance{
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 10rpx;
+}
+
+.item-bottom-distance-img{
+  height: 35rpx;
+  width: 40rpx; 
+}
+
+.item-bottom-distance-distance{
+  height: 100%;
+  font-size: 25rpx;
+}
+
+.search{
+  position: absolute;
+  /* right: 35rpx;
+  bottom: 130rpx; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100rpx;
+  height: 100rpx;
+  justify-items: center;
+  border-radius: 50%;
+  background-color:  #ffffff;
+  border-style: solid;
+  box-shadow:0px 2rpx 1rpx 2rpx #DDDDDD;
+  border-width: 0rpx;
+  z-index: 1;
+}
+
+.publish{
+  position: absolute;
+  /* right: 35rpx;
+  bottom: 15rpx; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  background-color:  #ffffff;
+  border-style: solid;
+  box-shadow:0px 2rpx 1rpx 2rpx #DDDDDD;
+  border-width: 0rpx;
+  z-index: 1;
+}
+
+.search-img{
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.publish-img{
+  width: 60rpx;
+  height: 60rpx;
+}
+
+
+
+/* demand */
+
+
+.demand-content{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f1f0f0;
+}
+
+.demand-scroll-view{
+  width: 96%;
+  display: flex;
+  justify-content: center;
+}
+
+.demand-item-content{
+  width: 99%;
+  height: 210rpx;
+  position: relative;
+  display: flex;
+  justify-content:  space-between;
+  align-items: center;
+  border: 1rpx solid #bebaba;
+  border-radius: 10rpx;
+  background-color: #ffffff;
+  margin-top: 20rpx;
+}
+
+.contact{
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color:  #2c23af;
+  width: 120rpx;
+  height: 60rpx;
+  top: 0rpx;
+  right: 0rpx;
+  /* border-top-left-radius: 25%; */
+  border-bottom-left-radius: 100%;
+}
+
+.contact-text{
+  font-size: 22rpx;
+  color: #ebebee;
+  margin-right: 10rpx;
+  margin-bottom: 10rpx;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: bold;
+}
+
+.avatar-and-name{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 30rpx;
+}
+
+.sex-boy{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: -5rpx;
+  top: 90rpx;
+  width: 45rpx;
+  height: 45rpx;
+  background-color:  #1e0feb;
+  border-radius: 50%;
+}
+
+.sex-girl{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: -5rpx;
+  top: 90rpx;
+  width: 45rpx;
+  height: 45rpx;
+  background-color:  #e71acc;
+  border-radius: 50%;
+}
+
+.sex-boy-img{
+  width: 35rpx;
+  height: 35rpx;
+}
+
+.sex-girl-img{
+  width: 35rpx;
+  height: 35rpx;
+}
+
+.avatar{
+  width: 130rpx;
+  height: 130rpx;
+  border: 1rpx solid #bebaba;
+  border-radius: 50%;
+}
+
+.name{
+  font-size: 25rpx;
+  margin-top: 5rpx;
+  height: 25rpx;
+}
+
+.detail{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 65%;
+  margin-right: 20rpx;
+}
+
+.demand-title{
+  width: 100%;
+  height: 50rpx;
+  font-size: 40rpx;
+   text-overflow: -o-ellipsis-lastline;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+
+.demand-detail{
+  height: 80rpx;
+  width: 100%;
+  text-overflow: -o-ellipsis-lastline;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+  align-content: center;
+  font-size: 30rpx;
+}
+
+.redpack-and-money-and-time-and-distance{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.redpack-and-money{
+  display: flex;
+  align-items: center;
+}
+
+.redback{
+  width: 25rpx;
+  height: 25rpx;
+}
+
+.money{
+  font-size: 25rpx;
+  color:  #a5a0a0;
+  margin-left: 10rpx;
+}
+
+
+.time-and-distance{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.time{
+  font-size: 25rpx;
+  color:  #a5a0a0;
+}
+
+.distance{
+  font-size: 25rpx;
+  color:  #a5a0a0;
+  margin-left: 20rpx;
+}
+

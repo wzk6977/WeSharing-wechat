@@ -1,0 +1,33 @@
+<view  class='message-content'>
+  <scroll-view class='message-scroll-view' scroll-y="true" style='height:{{windowHeight}}px'>
+    <view class='message-item-content' wx:for="{{messageList}}" wx:key="{{item.id}}" catchtap='contact'>
+      <view class='avatar-and-name'>
+        <view class='sex-boy'wx:if="{{item.sex==0}}">
+          <image class='sex-boy-img' src='/images/boy.png'/>
+        </view>
+        <view class='sex-girl' wx:else>
+          <image class='sex-girl-img' src='/images/girl.png'/>
+        </view>
+        <image class='avatar' src='{{item.headImg}}'/>
+        
+      </view>
+
+      <view class='detail'>
+
+        
+        <view class='name-time-distance'>
+          <text class='name'>{{item.name}}</text>
+          <view class='time-and-distance'>
+            <text class='distance'>距离{{item.distance}}</text>
+            <text class='time'>{{item.time}}</text>
+          </view>
+        </view>
+        <view class='message-detail'>
+          <text class='message-detail-text'>{{item.messageDetila}}</text>
+        </view>
+      </view>
+    </view>
+  
+  
+  </scroll-view>
+</view>

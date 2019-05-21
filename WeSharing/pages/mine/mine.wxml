@@ -1,0 +1,38 @@
+
+  <view class='user-info-content'>
+    <view class="avatar">
+      <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+      <block wx:else>
+        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      </block>
+    </view>
+    <view class='name-score'>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      <text class='userinfo-score'>信誉分：100分</text>
+    </view>
+  </view>
+  <view class='publish-shared'>
+    <image class='publish-shared-img' src='/images/publish_shared.png'/>
+    <text class='public-shared-text'>发布的共享</text>
+  </view>
+  <view class='publish-demand'>
+    <image class='publish-demand-img' src='/images/publish_demand.png'/>
+    <text class='public-demand-text'>发布的需求</text>
+  </view>
+
+  <view class='browse-record'>
+    <image class='browse-record-img' src='/images/browse_record.png'/>
+    <text class='browse-record-text'>浏览记录</text>
+  </view>
+
+  <view class='help'>
+    <image class='help-img' src='/images/help.png'/>
+    <text class='help-text'>帮助中心</text>
+  </view>
+
+  <view class='setting'>
+    <image class='setting-img' src='/images/setting.png'/>
+    <text class='setting-text'>设置</text>
+  </view>
+
+

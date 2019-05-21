@@ -1,0 +1,101 @@
+Page {
+  width: 100%;
+  height: 100%;
+  background-color: #f8f8f8;
+}
+
+.content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-title {
+  width: 85%;
+  height: 80rpx;
+  border: 1rpx solid rgb(175, 171, 171);
+  border-radius: 30rpx;
+  margin-top: 30rpx;
+  font-size: 35rpx;
+  padding-left: 20rpx;
+  background-color: #ffffff;
+}
+
+.input-content{
+  width: 85%;
+  height: 200rpx;
+  margin-top: 20rpx;
+  border: 1rpx solid rgb(175, 171, 171);
+  border-radius: 30rpx;
+  font-size: 35rpx;
+  padding-top: 15rpx;
+  padding-left: 20rpx;
+  background-color: #ffffff;
+}
+
+.price-and-duration{
+  width: 85%;
+  height:80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 15rpx;
+}
+
+.price{
+  width: 180rpx;
+  height: 65rpx;
+  border: 1rpx solid rgb(175, 171, 171);
+  border-radius: 20rpx;
+  font-size: 30rpx;
+  padding-left: 20rpx;
+  margin-top: 5rpx;
+  background-color: #ffffff;
+}
+
+.text{
+  font-size: 35rpx;
+  margin-left: 10rpx;
+}
+
+.select{
+  margin-left: 10rpx;
+  height: 65rpx;
+}
+
+.location{
+  width: 85%;
+  height: 50rpx;
+  display: flex;
+  align-items: center;
+  margin-top: 5rpx;
+
+}
+
+.location-img{
+  width: 55rpx;
+  height: 40rpx;
+}
+
+.location-text{
+  margin-left: 5rpx;
+  font-size: 30rpx;
+}
+
+.confirm{
+  position: absolute;
+  bottom: 40rpx;
+  width: 60%;
+  height: 80rpx;
+  background-color: #2f24c4;
+  color: #ffffff;
+  border-radius: 20rpx;
+  font-size: 35rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+

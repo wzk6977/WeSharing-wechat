@@ -1,0 +1,136 @@
+
+.message-content{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f1f0f0;
+}
+
+.message-scroll-view{
+  width: 96%;
+  display: flex;
+  justify-content: center;
+}
+
+.message-item-content{
+  width: 99%;
+  height: 160rpx;
+  display: flex;
+  justify-content:  space-between;
+  align-items: center;
+  border: 1rpx solid #bebaba;
+  border-radius: 10rpx;
+  background-color: #ffffff;
+}
+
+.avatar-and-name{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 20rpx;
+}
+
+.sex-boy{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: -10rpx;
+  top: 80rpx;
+  width: 45rpx;
+  height: 45rpx;
+  background-color:  #1e0feb;
+  border-radius: 50%;
+}
+
+.sex-girl{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: -10rpx;
+  top: 80rpx;
+  width: 45rpx;
+  height: 45rpx;
+  background-color:  #e71acc;
+  border-radius: 50%;
+}
+
+.sex-boy-img{
+  width: 35rpx;
+  height: 35rpx;
+}
+
+.sex-girl-img{
+  width: 35rpx;
+  height: 35rpx;
+}
+
+.avatar{
+  width: 130rpx;
+  height: 130rpx;
+  border: 1rpx solid #bebaba;
+  border-radius: 50%;
+}
+
+
+
+.detail{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 60%;
+  margin-right: 20rpx;
+}
+
+.name-time-distance{
+  width: 100%;
+  height: 55%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.name{
+  font-size: 35rpx;
+}
+
+.time-and-distance{
+  display: flex;
+  align-items: center;
+}
+
+.time{
+  font-size: 25rpx;
+  color:  #a5a0a0;
+  margin-left: 20rpx;
+}
+
+.distance{
+  font-size: 25rpx;
+  color:  #a5a0a0;
+}
+.message-detail{
+  height: 45%;
+  width: 100%;
+  display: flex;
+}
+
+.message-detail-text{
+  height: 40rpx;
+  width: 100%;
+  text-overflow: -o-ellipsis-lastline;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  align-content: center;
+  align-items: center;
+  font-size: 30rpx;
+  color:  #757272;
+}

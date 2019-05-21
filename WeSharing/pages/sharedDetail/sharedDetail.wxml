@@ -1,0 +1,103 @@
+<!--pages/sharedDetail/sharedDetail.wxml-->
+<scroll-view class='scroll' scroll-y='true'>
+  <view class='content'>
+    <view class='head'>
+      <view class='head-left'>
+        <image class='avatar' src='/images/home.png' />
+        <view class='name-and-time'>
+          <text class='head-name'>啦啦啦</text>
+          <text class='head-time'>1分钟前</text>
+        </view>
+      </view>
+
+      <view class='head-right'>
+        <text class='page-views'>浏览量:2人</text>
+        <text class='intention'>有意向:1人</text>
+      </view>
+    </view>
+
+    <view class='swiper-content'>
+      <swiper class='swiper' autoplay='true' circular='false' bindchange='changeImg'>
+        <swiper-item class='swiper-item'>
+          <image class='swiper-item-img' src='http://img5.imgtn.bdimg.com/it/u=2897040053,2093938930&fm=26&gp=0.jpg' mode='scaleToFill'></image>
+        </swiper-item>
+
+        <swiper-item class='swiper-item'>
+          <image class='swiper-item-img' src='http://img2.imgtn.bdimg.com/it/u=3127958937,2525016321&fm=26&gp=0.jpg' mode='scaleToFill'></image>
+        </swiper-item>
+
+        <swiper-item class='swiper-item'>
+          <image class='swiper-item-img' src='http://img0.imgtn.bdimg.com/it/u=3101786039,2156043611&fm=26&gp=0.jpg' mode='scaleToFill'></image>
+        </swiper-item>
+
+        <swiper-item class='swiper-item'>
+          <image class='swiper-item-img' src='http://img4.imgtn.bdimg.com/it/u=2534430170,307869920&fm=26&gp=0.jpg' mode='scaleToFill'></image>
+        </swiper-item>
+
+
+
+      </swiper>
+
+      <span class="item-num" wx:if="{{imagesUrl.length > 1}}">{{activeIndex+1}}/{{imagesUrl.length}} </span>
+    </view>
+    <view class='sharedname-distance-price'>
+      <text class='sharedname'>雨伞</text>
+      <view class='distance-price'>
+        <text class='distance'>500米内</text>
+        <text class='price'>5元/天</text>
+      </view>
+    </view>
+
+    <view class='shared-detail'>
+      <view class='detail-content'>
+        <text class="detail-text {{ellipsis?'ellipsis':'unellipsis'}}">母Y，代表木栓或木钉（peg），在腓尼基语和栓或木钉（peg），在腓尼二位哥哥是个大帅哥德国大使馆是德国的帅哥帅哥士大夫大师傅嘀二f挺好的挺好的挺好的挺好的挺好的挺好的挺好的</text>
+      </view>
+      <view class='show-and-hidden' wx:if="{{showBtn}}">
+        <text class='show-and-hidden-text' bindtap='ellipsis'>{{ellipsis?"全文":"收起"}}</text>
+      </view>
+    </view>
+
+    <view class='dividing-line'></view>
+
+    <!-- 评论 -->
+    <view class='comment'>
+      <view class='comment-number'>
+        <text class='comment-number-text'>评论</text>
+        <text class='comment-number-count'>13</text>
+      </view>
+
+      <view class='comment-my'>
+        <view class="avatar">
+          <button class='userinfo-text' wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+          <block wx:else>
+            <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+          </block>
+        </view>
+        <view class='comment-input-content'>
+          <input class='comment-input' placeholder='请输入您的评价'></input>
+        </view>
+      </view>
+
+      <view class='comment-other'>
+        <view class='comment-other-content'>
+          <view class='avatar-content'>
+            <image class="userinfo-avatar" src='/images/head.jpg'></image>
+          </view>
+          <text class='comment-other-text'>挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的</text>
+          <view class='time-content'>
+            <text class='comment-other-time'>2019.05.01</text>
+          </view>
+        </view>
+
+        <view class='check-more'>
+          <text class='check-more-text'>查看更多</text>
+          <image class='check-more-img' src='/images/down1.png'></image>
+        </view>
+      </view>
+
+    </view>
+  </view>
+</scroll-view>
+<view class='contact'>
+  <button class='contact-btn'>联系Ta</button>
+</view>

@@ -1,0 +1,35 @@
+<!--pages/home/home.wxml-->
+
+<view class='swiper-tab'>
+  <view class="swiper-tab-list {{currentTab==0 ? 'active' : ''}}" data-current="0" 
+  bindtap='swichNav'>共享</view>
+  <view class="swiper-tab-list {{currentTab==1?'active':''}}" data-current="1"
+  bindtap='swichNav'>需求</view>
+</view>
+
+ <!-- 搜索按钮 -->
+  <view id='search' class='search' catchtouchmove="buttonMove" catchtouchstart="buttonStart" catchtouchend="buttonEnd" style="bottom:{{searchButtonBottom}}px;right:{{searchButtonRight}}px;">
+    <image class='search-img' src='/images/search.png'></image>
+  </view>
+
+  <!-- 发布按钮 -->
+  <view id='publish'  class='publish'  bindtouchmove="buttonMove" bindtouchstart="buttonStart" bindtouchend="buttonEnd" bindtap='publishClick' style="bottom:{{publishButtonBottom}}px;right:{{publishButtonRight}}px;">
+    <image class='publish-img' src='/images/publish.png'></image>
+  </view>
+ 
+<swiper class='swiper' current="{{currentTab}}" duration='300' bindchange='bindChange'>
+
+  
+ <!-- 共享页面 -->
+  <swiper-item class="swiper-item">
+    <include src="/templatewxml/home_shared.wxml"/> 
+  </swiper-item>
+ 
+  <!-- 需求页面 -->
+  <swiper-item>
+     <include src="/templatewxml/home_demand.wxml"/>
+
+  </swiper-item>
+  
+</swiper>
+

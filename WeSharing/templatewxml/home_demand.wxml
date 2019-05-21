@@ -1,0 +1,37 @@
+<view class='demand-content'>
+  <scroll-view class='demand-scroll-view' scroll-y="true" style='height:{{scrollHeight}}px'>
+
+    <view class='demand-item-content' wx:for="{{demandList}}" wx:key="{{item.id}}">
+      <view class='contact'>
+        <text class='contact-text'>联系Ta</text>
+      </view>
+
+      <view class='avatar-and-name'>
+        <view class='sex-boy' wx:if="{{item.sex==0}}">
+          <image class='sex-boy-img' src='/images/boy.png' />
+        </view>
+        <view class='sex-girl' wx:else>
+          <image class='sex-girl-img' src='/images/girl.png' />
+        </view>
+        <image class='avatar' src='{{item.headImg}}' />
+        <text class='name'>{{item.name}}</text>
+      </view>
+      <view class='detail'>
+        <text class='demand-title'>{{item.demandTitle}}</text>
+        <text class='demand-detail'>{{item.demandDetila}}</text>
+        <view class='redpack-and-money-and-time-and-distance'>
+          <view class='redpack-and-money'>
+            <image class='redback' src='/images/redpack.png'></image>
+            <text class='money'>感谢{{item.money}}元</text>
+          </view>
+          <view class='time-and-distance'>
+            <text class='time'>{{item.time}}</text>
+            <text class='distance'>距离{{item.distance}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+
+  </scroll-view>
+</view>

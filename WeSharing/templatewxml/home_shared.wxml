@@ -1,0 +1,54 @@
+<view class="content">
+  <scroll-view class='scroll-view' scroll-y="true" style='height:{{scrollHeight}}px'>
+    <!-- 分享列表  此处先写死，以后动态从后台获取-->
+    <view class="shared-list">
+      <!-- 左边一列 -->
+      <view class='left'>
+        <view class="item-content" wx:for="{{col1}}" wx:for-item="item" wx:key="{{item.id}}" bindtap='sharedItemClick'>
+          <image class='item-img' src='{{item.image}}' style="height:{{item.imageHeight}}px" />
+          <text class="item-name">{{item.name}}</text>
+          <view class='item-bottom'>
+            <text class='item-bottom-price'>{{item.price}}</text>
+            <view class='item-bottom-distance'>
+              <image class='item-bottom-distance-img' src='/images/position.png' />
+              <text class='item-bottom-distance-distance'>{{item.distance}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!-- 右边一列 -->
+      <view class='right'>
+        <view class="item-content" wx:for="{{col2}}" wx:for-item="item" wx:key="{{item.id}}" bindtap='sharedItemClick'>
+          <image class='item-img' src='{{item.image}}' style="height:{{item.imageHeight}}px" />
+          <text class="item-name">{{item.name}}</text>
+          <view class='item-bottom'>
+            <text class='item-bottom-price'>{{item.price}}</text>
+            <view class='item-bottom-distance'>
+              <image class='item-bottom-distance-img' src='/images/position.png' />
+              <text class='item-bottom-distance-distance'>{{item.distance}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- <view style="display:none">
+        <image src='/images/home.png' bindload="fillData"></image>
+      </view>
+
+      <view style="display:none" class="item-content" wx:for="{{sharedList}}" wx:for-item="item" wx:key="sharedList" bindload="fillData">
+        <image class='item-img' src='{{item.image}}'/>
+        <text class="item-name">{{item.name}}</text>
+        <view class='item-bottom'>
+          <text class='item-bottom-price'>{{item.price}}</text>
+          <view class='item-bottom-distance'>
+            <image class='item-bottom-distance-img' src='/images/position.png'/>
+            <text class='item-bottom-distance-distance'>{{item.distance}}</text>
+          </view>
+        </view>
+      </view> -->
+
+
+      <!-- <waterFallView class="water-fall-view" id='waterFallView'></waterFallView> -->
+    </view>
+  </scroll-view>
+</view>

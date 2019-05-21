@@ -1,0 +1,29 @@
+<!--pages/publishShared/publishShared.wxml-->
+<view class='content'>
+
+  <input class='input-title' placeholder='请输入需求标题' bindconfirm="titleConfirm"></input>
+  <textarea class='input-content' placeholder='请输入需求详细内容' maxlength='-1' focus="{{isFocus}}"></textarea>
+
+  <view class='price-and-duration'>
+    <text class='text'>感谢费：</text>
+    <input class='price' type='number' placeholder='请输入价格' />
+    <text class='text'>元</text>
+   
+  </view>
+
+  <view class='location' bindtap='showActionSheet'>
+    <image class='location-img' src='/images/position.png' />
+    <text class='location-text'>{{location}}</text>
+  </view>
+
+  <button class='confirm'>确认发布</button>
+
+  <action-sheet hidden='{{actionSheetHidden}}' catchtap='actionSheetChange'>
+    <block wx:for='{{actionSheetList}}' wx:key=''>
+      <action-sheet-item catchtap='changeValue' data-title='{{item.title}}'>{{item.title}}</action-sheet-item>
+    </block>
+    <action-sheet-item catchtap='chooseLocation'>选择位置</action-sheet-item>
+    <action-sheet-cancel class='cancel'>取消</action-sheet-cancel>
+  </action-sheet>
+
+</view>

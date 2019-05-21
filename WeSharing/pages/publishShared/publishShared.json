@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "Select": "/componnent/select/select"
+  },
+  "navigationBarTitleText": "发布共享",
+  "disableSwipeBack":true
+}
