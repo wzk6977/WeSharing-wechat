@@ -377,6 +377,12 @@ Page({
     })
     this.getImageList()
 
+    wx.request({
+      url: 'http://127.0.0.1:8080/wesharing-wechat/hello.do',
+      success(res){
+        console.log(res);
+      }
+    })
 
   },
 
