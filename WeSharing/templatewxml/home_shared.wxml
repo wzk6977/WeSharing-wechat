@@ -1,17 +1,22 @@
 <view class="content">
   <scroll-view class='scroll-view' scroll-y="true" style='height:{{scrollHeight}}px'>
-    <!-- 分享列表  此处先写死，以后动态从后台获取-->
+
+    <!-- 在页面上放一个隐藏区域，并用image组件去加载一个或多个图片资源
+    <view style="display:none">
+      <image wx:for="{{sharedList}}" wx:key="id" src="{{item.images[0].image_url}}" data-id='{{index}}' bindload="onImageLoad"></image>
+    </view> -->
+
     <view class="shared-list">
       <!-- 左边一列 -->
       <view class='left'>
-        <view class="item-content" wx:for="{{col1}}" wx:for-item="item" wx:key="{{item.id}}" bindtap='sharedItemClick'>
-          <image class='item-img' src='{{item.image}}' style="height:{{item.imageHeight}}px" />
+        <view class="item-content" wx:for="{{col1}}" wx:for-item="item" wx:key="{{item.uuid}}" data-uuid="{{item.uuid}}" catchtap='sharedItemClick'>
+          <image  data-id='{{index}}'  class='item-img' src='{{item.images[0].image_url}}' style="height:{{item.images[0].image_height}}px" />
           <text class="item-name">{{item.name}}</text>
           <view class='item-bottom'>
-            <text class='item-bottom-price'>{{item.price}}</text>
+            <text class='item-bottom-price'>{{item.price}}元/{{item.price_unit}}</text>
             <view class='item-bottom-distance'>
               <image class='item-bottom-distance-img' src='/images/position.png' />
-              <text class='item-bottom-distance-distance'>{{item.distance}}</text>
+              <text class='item-bottom-distance-distance'>{{item.distance}}天河区500米</text>
             </view>
           </view>
         </view>
@@ -19,14 +24,14 @@
 
       <!-- 右边一列 -->
       <view class='right'>
-        <view class="item-content" wx:for="{{col2}}" wx:for-item="item" wx:key="{{item.id}}" bindtap='sharedItemClick'>
-          <image class='item-img' src='{{item.image}}' style="height:{{item.imageHeight}}px" />
+        <view class="item-content" wx:for="{{col2}}" wx:for-item="item" wx:key="{{item.uuid}}" data-uuid="{{item.uuid}}" catchtap='sharedItemClick'>
+          <image  data-id='{{index}}' class='item-img' src='{{item.images[0].image_url}}' style="height:{{item.images[0].image_height}}px" />
           <text class="item-name">{{item.name}}</text>
           <view class='item-bottom'>
-            <text class='item-bottom-price'>{{item.price}}</text>
+            <text class='item-bottom-price'>{{item.price}}元/{{item.price_unit}}</text>
             <view class='item-bottom-distance'>
               <image class='item-bottom-distance-img' src='/images/position.png' />
-              <text class='item-bottom-distance-distance'>{{item.distance}}</text>
+              <text class='item-bottom-distance-distance'>{{item.distance}}天河区500米</text>
             </view>
           </view>
         </view>

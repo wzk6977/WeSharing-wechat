@@ -2,23 +2,28 @@
 <scroll-view class='scroll' scroll-y='true'>
   <view class='content'>
     <view class='head'>
-      <view class='head-left'>
-        <image class='avatar' src='/images/home.png' />
+      <view class='head-left'> 
+        <image class='sharer-image' src='{{sharedDetail.user.image_url}}'/>
         <view class='name-and-time'>
-          <text class='head-name'>啦啦啦</text>
-          <text class='head-time'>1分钟前</text>
+          <text class='head-name'>{{sharedDetail.user.name}}</text>
+          <text class='head-time'>{{sharedDetail.publish_time}}</text>
         </view>
       </view>
 
       <view class='head-right'>
-        <text class='page-views'>浏览量:2人</text>
-        <text class='intention'>有意向:1人</text>
+        <text class='page-views'>浏览量:{{sharedDetail.page_views}}人</text>
+        <text class='intention'>有意向:{{sharedDetail.intention}}人</text>
       </view>
     </view>
 
     <view class='swiper-content'>
       <swiper class='swiper' autoplay='true' circular='false' bindchange='changeImg'>
-        <swiper-item class='swiper-item'>
+
+         <swiper-item class='swiper-item' wx:for="{{sharedDetail.images}}" wx:for-item="item" wx:key='id'>
+          <image class='swiper-item-img' src='{{item.image_url}}' mode='scaleToFill'></image>
+        </swiper-item>
+
+        <!-- <swiper-item class='swiper-item'>
           <image class='swiper-item-img' src='http://img5.imgtn.bdimg.com/it/u=2897040053,2093938930&fm=26&gp=0.jpg' mode='scaleToFill'></image>
         </swiper-item>
 
@@ -32,25 +37,25 @@
 
         <swiper-item class='swiper-item'>
           <image class='swiper-item-img' src='http://img4.imgtn.bdimg.com/it/u=2534430170,307869920&fm=26&gp=0.jpg' mode='scaleToFill'></image>
-        </swiper-item>
+        </swiper-item> -->
 
 
 
       </swiper>
 
-      <span class="item-num" wx:if="{{imagesUrl.length > 1}}">{{activeIndex+1}}/{{imagesUrl.length}} </span>
+      <span class="item-num" wx:if="{{sharedDetail.images.length > 1}}">{{activeIndex+1}}/{{sharedDetail.images.length}} </span>
     </view>
     <view class='sharedname-distance-price'>
-      <text class='sharedname'>雨伞</text>
+      <text class='sharedname'>{{sharedDetail.name}}</text>
       <view class='distance-price'>
-        <text class='distance'>500米内</text>
-        <text class='price'>5元/天</text>
+        <text class='distance'>{{sharedDetail.distance}}500米内</text>
+        <text class='price'>{{sharedDetail.price}}元/{{sharedDetail.price_unit}}</text>
       </view>
     </view>
 
     <view class='shared-detail'>
       <view class='detail-content'>
-        <text class="detail-text {{ellipsis?'ellipsis':'unellipsis'}}">母Y，代表木栓或木钉（peg），在腓尼基语和栓或木钉（peg），在腓尼二位哥哥是个大帅哥德国大使馆是德国的帅哥帅哥士大夫大师傅嘀二f挺好的挺好的挺好的挺好的挺好的挺好的挺好的</text>
+        <text class="detail-text {{ellipsis?'ellipsis':'unellipsis'}}">{{sharedDetail.detail}}</text>
       </view>
       <view class='show-and-hidden' wx:if="{{showBtn}}">
         <text class='show-and-hidden-text' bindtap='ellipsis'>{{ellipsis?"全文":"收起"}}</text>
@@ -63,38 +68,54 @@
     <view class='comment'>
       <view class='comment-number'>
         <text class='comment-number-text'>评论</text>
-        <text class='comment-number-count'>13</text>
+        <text class='comment-number-count'>{{commentCount}}</text>
       </view>
 
       <view class='comment-my'>
         <view class="avatar">
           <button class='userinfo-text' wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
           <block wx:else>
-            <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+            <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.image_url}}" mode="cover"></image>
           </block>
         </view>
         <view class='comment-input-content'>
-          <input class='comment-input' placeholder='请输入您的评价'></input>
+          <input class='comment-input' value='{{inputValue}}' placeholder='请输入您的评价' bindinput='getInput'></input>
+          <button class='comment-input-send' wx:if='{{showSendBtn}}' catchtap='confirmComment'>确定</button>
         </view>
       </view>
 
       <view class='comment-other'>
-        <view class='comment-other-content'>
+
+        <view class='comment-other-content' wx:for='{{sharedComments}}' wx:for-item='item' wx:key='id'>
+          <view class='avatar-content'>
+            <image class="userinfo-avatar" src='{{item.user.image_url}}'></image>
+          </view>
+          <text class='comment-other-text'>{{item.content}}</text>
+          <view class='time-content'>
+            <text class='comment-other-time'>{{item.publish_time}}</text>
+          </view>
+        <!-- <view class='comment-other-content'>
           <view class='avatar-content'>
             <image class="userinfo-avatar" src='/images/head.jpg'></image>
           </view>
           <text class='comment-other-text'>挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的</text>
           <view class='time-content'>
             <text class='comment-other-time'>2019.05.01</text>
-          </view>
+          </view> -->
+
         </view>
 
         <view class='check-more'>
-          <text class='check-more-text'>查看更多</text>
-          <image class='check-more-img' src='/images/down1.png'></image>
+          <view class='check-more-content' catchtap='checkMoreComment' wx:if='{{commentCount > 1}}'>
+            <text class='check-more-text'>{{checkMoreOrLess ? '查看更多' : '收起'}}</text>
+            <image class='check-more-img' src='/images/down1.png' 
+            style='{{checkMoreOrLess ? "" :"transform: rotate(180deg)"}}'></image>
+          </view>
+        </view>
+        <view class='robsofa-content' wx:if='{{sharedComments.length == 0}}'>
+          <image class='robsofa' src='/images/robsofa.png'></image>
         </view>
       </view>
-
     </view>
   </view>
 </scroll-view>

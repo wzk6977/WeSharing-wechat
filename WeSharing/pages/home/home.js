@@ -1,4 +1,5 @@
 // pages/home/home.js
+const app = getApp()
 
 var startPoint;
 
@@ -26,6 +27,9 @@ Page({
     publishButtonRight: 20,
     windowHeight: '',
     windowWidth: '',
+
+    // 剩余加载的图片
+    imageLoad:0,
 
     sharedList: [{
         id: 1,
@@ -219,6 +223,43 @@ Page({
   //   console.log("2432432");
   // },
 
+  onImageLoad: function(e) {
+    console.log(e)
+    console.log(this.data.sharedList)
+    // console.log(this.data.col1[e.currentTarget.dataset.id].images[0].image_height)
+    // console.log(e)
+    // this.data.coll[e.currentTarget.dataset.id].images[0].image_height = 0
+    this.data.sharedList[e.currentTarget.dataset.id].images[0].image_height = e.detail.height
+    this.data.sharedList[e.currentTarget.dataset.id].images[0].image_width = e.detail.width
+    // this.data.imageLoad = this.data.imageLoad+1
+    // if (this.data.imageLoad == this.data.sharedList.length){
+
+    this.getImageList(e.currentTarget.dataset.id)
+
+    if (!this.data.imageLoad){
+      console.log("结束")
+      console.log(e.currentTarget.dataset.id)
+      this.data.sharedList = [];
+    }
+
+    // }
+  },
+
+  // onImageLoad: function (e) {
+  //   console.log('图片加载完毕')
+  //   // console.log("imageLoad-------------------")
+  //   // console.log(this.data.col1[e.currentTarget.dataset.id].images[0].image_height)
+  //   // console.log(e)
+  //   // this.data.coll[e.currentTarget.dataset.id].images[0].image_height = 0
+  //   this.data.col1[e.currentTarget.dataset.id].images[0].image_height = e.detail.height
+  //   this.data.col1[e.currentTarget.dataset.id].images[0].image_width = e.detail.width
+  //   this.data.imageLoad = this.data.imageLoad + 1
+  //   // if (this.data.imageLoad == this.data.sharedList.length) {
+  //     this.getImageList()
+  //   // }
+  // },
+
+
   //瀑布流图片处理
   getImageList() {
     /*
@@ -231,7 +272,7 @@ Page({
     for (let i = 0; i < imageList.length; i++) {
 
       let imgWidth = _this.data.imgWidth;
-      let oImgW = imageList[i].imageWidth;
+      let oImgW = imageList[i].images[0].image_width;
       let scrollHeight = _this.data.scrollHeight * 0.75;
 
 
@@ -242,18 +283,18 @@ Page({
 
       //比例计算
       let scale = imgWidth / oImgW;
-      imageList[i].imageHeight = imageList[i].imageHeight * scale;
+      imageList[i].images[0].image_height = imageList[i].images[0].image_height * scale;
 
       //防止霸屏
-      if (imageList[i].imageHeight > scrollHeight) {
-        imageList[i].imageHeight = scrollHeight;
+      if (imageList[i].images[0].image_height > scrollHeight) {
+        imageList[i].images[0].image_height = scrollHeight;
       }
 
       if (hotListLeftHeightTemp <= hotListRightHeightTemp) {
-        hotListLeftHeightTemp += imageList[i].imageHeight;
+        hotListLeftHeightTemp += imageList[i].images[0].image_height;
         col1.push(imageList[i]);
       } else {
-        hotListRightHeightTemp += imageList[i].imageHeight;
+        hotListRightHeightTemp += imageList[i].images[0].image_height;
         col2.push(imageList[i]);
       }
 
@@ -261,7 +302,8 @@ Page({
         hotListLeftHeight: hotListLeftHeightTemp,
         hotListRightHeight: hotListRightHeightTemp,
         col1: col1,
-        col2: col2
+        col2: col2,
+        //imageLoad: this.data.imageLoad-1
       })
     }
   },
@@ -353,9 +395,11 @@ Page({
   },
 
   sharedItemClick: function(e) {
-    console.log("sharedItem被点击了");
+    console.log('aaa')
+    console.log(e.currentTarget.dataset.uuid);
+    var sharedId = e.currentTarget.dataset.uuid;
     wx.navigateTo({
-      url: '../sharedDetail/sharedDetail',
+      url: '../sharedDetail/sharedDetail?sharedId='+sharedId,
     })
   },
 
@@ -364,7 +408,8 @@ Page({
    */
   onLoad: function(options) {
     var that = this
-
+    that.data.col1 = [];
+    that.data.col2 = [];
     wx.getSystemInfo({
       success: function(res) {
         that.setData({
@@ -375,14 +420,32 @@ Page({
         })
       },
     })
-    this.getImageList()
+    
 
     wx.request({
-      url: 'http://127.0.0.1:8080/wesharing-wechat/hello.do',
+      url: app.globalData.httpID+'getSharedList.do',
+      // 'http://127.0.0.1:8080/wesharing-wechat/getSharedList.do',
       success(res){
         console.log(res);
+        that.setData({
+          sharedList:res.data,
+          imageLoad:res.data.length
+        })
+
+        that.getImageList()
+        wx.request({
+          url: app.globalData.httpID + 'getDemandList.do',
+          success(res) {
+            that.setData({
+              demandList: res.data
+            })
+          }
+        })
       }
     })
+
+    
+
 
   },
 
@@ -397,7 +460,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
   },
 
   /**

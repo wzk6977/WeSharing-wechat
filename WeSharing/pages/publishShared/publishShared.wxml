@@ -1,11 +1,11 @@
 <!--pages/publishShared/publishShared.wxml-->
 <view class='content'>
 
-  <input class='input-title' placeholder='请输入共享标题' bindconfirm="titleConfirm"></input>
-  <textarea class='input-content' placeholder='请输入共享详细内容' maxlength='-1' focus="{{isFocus}}"></textarea>
+  <input class='input-title' placeholder='请输入共享标题' bindconfirm="titleConfirm" bindinput='getSharedNameInput'></input>
+  <textarea class='input-content' placeholder='请输入共享详细内容' maxlength='-1' focus="{{isFocus}}" bindinput='getSharedDetailInput'></textarea>
 
   <view class='price-and-duration'>
-    <input class='price' type='number' placeholder='请输入价格' />
+    <input class='price' type='number' placeholder='请输入价格' bindinput='getSharedPriceInput'/>
     <text class='text'>元/</text>
     <Select class='select' prop-array='{{selectArray}}' bind:myget='getDate'></Select>
   </view>
@@ -48,11 +48,11 @@
     <text class='location-text'>{{location}}</text>
   </view>
 
-  <button class='confirm'>确认发布</button>
+  <button class='confirm' catchtap='confirmPublishShared'>确认发布</button>
 
   <action-sheet hidden='{{actionSheetHidden}}' catchtap='actionSheetChange'>
     <block wx:for='{{actionSheetList}}' wx:key=''>
-      <action-sheet-item catchtap='changeValue' data-title='{{item.title}}'>{{item.title}}</action-sheet-item>
+      <action-sheet-item catchtap='changeValue' data-title='{{item.title}}' data-location='{{item.location}}'>{{item.title}}</action-sheet-item>
     </block>
     <action-sheet-item catchtap='chooseLocation'>选择位置</action-sheet-item>
     <action-sheet-cancel class='cancel'>取消</action-sheet-cancel>

@@ -41,7 +41,7 @@ color:transparent;
   align-items: center;
 }
 
-.avatar{
+.sharer-image{
   height: 100rpx;
   width: 100rpx;
   border-radius: 50%;
@@ -207,6 +207,7 @@ color:transparent;
 
 .comment-number-count{
   font-size: 20rpx;
+  margin-left: 5rpx;
 }
 
 .comment-my{
@@ -235,6 +236,7 @@ color:transparent;
 }
 
 .comment-input-content{
+  position: relative;
   width: 100%;
   display: flex;
   justify-content: flex-end;
@@ -246,8 +248,26 @@ color:transparent;
   height: 60rpx;
   border-radius: 30rpx;
   padding-left: 10rpx;
+  padding-right: 100rpx;
   font-size: 30rpx;
   background-color: #e9e7e7;
+}
+
+.comment-input-send{
+  position: absolute;
+  right: 10rpx;
+  width: 80rpx;
+  height: 45rpx;
+  padding: 0rpx;
+  line-height: 45rpx;
+  font-size: 20rpx;
+  border-radius: 30rpx;
+  background-color: #2f24c4;
+  color: #ffffff;
+}
+
+.comment-input-send::after{
+  border: none;
 }
 
 .comment-other{
@@ -269,7 +289,6 @@ color:transparent;
   width: 18%;
   /* height: 100%; */
 }
-
 .comment-other-text{
   width: 62%;
   font-size: 30rpx;
@@ -298,6 +317,12 @@ color:transparent;
   align-items: center;
 }
 
+.check-more-content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .check-more-text{
   font-size: 20rpx;
   color: #416dca;
@@ -309,6 +334,17 @@ color:transparent;
   width: 20rpx;
   height: 12rpx;
   color: #416dca;
+}
+
+.robsofa-content{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.robsofa{
+  width: 250rpx;
+  height: 250rpx;
 }
 
 .contact{
